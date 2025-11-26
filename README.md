@@ -1,121 +1,110 @@
-Selenium C# Test Automation Project
+Hotel Booking Automation Tests (C# + Selenium)
 📌 Overview
 
-This repository contains automated UI tests written in C#, using Selenium WebDriver, NUnit/MSTest (state which you use), and ChromeDriver.
-The tests demonstrate interaction with web elements, waiting strategies, test structure, and good automation practices.
+This repository contains automated UI tests for a hotel booking workflow, implemented in C#, using Selenium WebDriver and MSTest.
+The tests demonstrate browser automation, dynamic element interaction, handling date pickers, dropdowns, waits, and common user flows found in hotel booking systems.
 
-🚀 Project Features
+🚀 Features
 
-Automated browser testing using Selenium WebDriver
+Automated browser testing with Google Chrome
 
-Page navigation and interaction
+Dynamic date selection (no hard-coded selectors)
 
-Dynamic waits (explicit waits)
+Interaction with:
 
-Form inputs, dropdowns, checkboxes, and date pickers
+Input fields
 
-Clean code structure for readability and maintainability
+Buttons
 
-Configurable test settings
+Dropdowns
+
+Radio buttons
+
+Checkboxes
+
+Explicit waits using WebDriverWait
+
+Clear test structure using MSTest
+
+Designed for interview-ready demonstration of Selenium skills
 
 🧰 Tech Stack
-Tool / Library	Purpose
-C#	Programming language used for test scripts
+Component	Purpose
+C# (.NET)	Main programming language
 Selenium WebDriver	Browser automation
-ChromeDriver	Controls Google Chrome
-NUnit / MSTest	Test framework (choose yours)
-.NET SDK	Runtime for building and running tests
-NuGet Packages	Selenium WebDriver, WebDriver.Support, etc.
+ChromeDriver / Selenium Manager	Controls Chrome
+MSTest	Test framework
+NuGet Packages	Selenium.WebDriver, Selenium.Support, MSTest.TestFramework, etc.
 📂 Project Structure
-
-Example:
-
-SeleniumTests/
-│
-├── HotelBookingTests/
-│   ├── BookingDotComTests.cs
-│   ├── TestSetup.cs
-│   └── ...
-│
-└── README.md
-
-
-Adjust according to your real folder names.
+HotelBookingTests.slnx
+└── TestProject1/
+    ├── TestProject1.csproj
+    ├── BookingDotCom.cs (example test class)
+    └── Other test support files
 
 ⚙️ Prerequisites
 
-Before running the tests, ensure you have:
+Make sure the following are installed:
 
-.NET 6+ SDK installed
+.NET 6 SDK or higher
 
-Google Chrome installed
+Google Chrome
 
-ChromeDriver matching the Chrome version (or use Selenium Manager, which downloads it automatically)
+(Optional) ChromeDriver manually — but Selenium Manager can download it automatically
 
-To install dependencies:
+Restore dependencies:
 
 dotnet restore
 
-▶️ How to Run the Tests
+▶️ Running Tests
 
-Using terminal:
+Using CLI:
 
 dotnet test
 
 
-Or if using Visual Studio:
+Using Visual Studio:
 
-Open the solution
+Open the solution .slnx
 
-Go to Test Explorer
+Open Test Explorer
 
-Run all tests or selected ones
+Click Run All
 
-🧪 Example Test Scenario
+🧪 Example Test Flow
 
-You can include a short description of what your main test does, e.g.:
+Your test scenarios include:
 
-Navigate to booking website
+Launching the hotel booking website
 
-Select check-in and check-out date
+Entering destination
 
-Choose number of guests
+Selecting check-in and check-out dates
 
-Search for available hotels
+Choosing number of guests
 
-Verify results appear
+Performing a search
 
-(Keep it short and factual.)
+Validating that results load correctly
 
-🔧 Configuration
-
-Explain if the user needs to modify:
-
-the base URL
-
-test data
-
-browser options
-
-Example:
-
-var options = new ChromeOptions();
-options.AddArgument("--start-maximized");
+All element interactions use explicit waits and proper locators to make the tests reliable.
 
 🔍 Troubleshooting
+NoSuchElementException
 
-Common issues you may include:
+Occurs if an element has not loaded yet.
+Fix: Increase explicit wait time or improve CSS/XPath locator.
 
-“No such element”
+TimeoutException
 
-Occurs when the element is not yet present → fix with explicit waits.
+The element did not appear in time.
+Fix: Ensure page loads correctly and waits are applied at the right moment.
 
-“Timed out after 10 seconds”
+ElementClickInterceptedException
 
-Increase wait time or use more reliable locators.
+Something blocks the element (popup, overlay).
+Fix: Wait for overlays or scroll element into view.
 
 📄 License
 
-If unsure, you can use MIT (common and safe):
-
-This project is licensed under the MIT License.
+MIT License (optional to change).
