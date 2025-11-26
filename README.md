@@ -1,4 +1,4 @@
-elenium C# Test Automation Project
+Selenium C# Test Automation Project
 📌 Overview
 
 This repository contains automated UI tests written in C#, using Selenium WebDriver, NUnit/MSTest (state which you use), and ChromeDriver.
