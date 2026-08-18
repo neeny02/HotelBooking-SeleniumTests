@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers; // This is crucial for ExpectedConditions
@@ -24,11 +25,11 @@ namespace TestProject1
             IWebElement DestinationInput = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id='suggestion-list']/ul/li[1]")));
             DestinationInput.Click();
 
-            //IWebElement CheckIn = wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("button[data-testid='search-form-calendar']")));
-            //CheckIn.Click();
+            IWebElement CheckIn = wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("button[data-testid='search-form-calendar']")));
+            CheckIn.Click();
 
-            //IWebElement CheckInDate = wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("button[data-testid='valid-calendar-day-2025-11-27'] time")));
-            //CheckInDate.Click();
+            IWebElement CheckInDate = wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("button[data-testid='valid-calendar-day-2025-11-27'] time")));
+            CheckInDate.Click();
             string date = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd"); // tomorrow
             string selector = $"button[data-testid='valid-calendar-day-{date}']";
             IWebElement checkInDate = wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector(selector)));
@@ -43,11 +44,11 @@ namespace TestProject1
             wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-testid='search-form-guest-selector']"))).Click();
 
             //selecting guests
-           // wait.Until(ExpectedConditions.ElementToBeClickable(By.Name("adults"))).SendKeys("4");
+            //wait.Until(ExpectedConditions.ElementToBeClickable(By.Name("adults"))).SendKeys("4");
             //click apply button
-            wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("data-testid='search-button-with-loader']"))).Click();
-            //click submit button
             wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-testid='search-button-with-loader']"))).Click();
-                }
+            // ensure final submit is clicked, if needed
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-testid='search-button-with-loader']"))).Click();
+        }
     }
 }
